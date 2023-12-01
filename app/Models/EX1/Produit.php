@@ -16,7 +16,7 @@ class Produit extends Model
 
     public function categorie()
     {
-        return $this->belongsTo('App\Models\Categorie', 'idcategorie');
+        return $this->belongsTo('App\Models\EX1\Categorie', 'idcategorie');
     }
 
     public function ventes()

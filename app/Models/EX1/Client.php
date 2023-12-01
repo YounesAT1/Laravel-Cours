@@ -18,6 +18,6 @@ class Client extends Model
 
     public function ventes()
     {
-        return $this->hasMany('App\Models\Vente', 'idclient');
+        return $this->hasMany('App\Models\EX1\Vente', 'idclient');
     }
 }

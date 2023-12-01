@@ -16,6 +16,6 @@ class Categorie extends Model
 
     public function produits()
     {
-        return $this->hasMany('App\Models\Produit', 'idcategorie');
+        return $this->hasMany('App\Models\EX1\Produit', 'idcategorie');
     }
 }

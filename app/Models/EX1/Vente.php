@@ -16,11 +16,11 @@ class Vente extends Model
 
     public function client()
     {
-        return $this->belongsTo('App\Models\Client', 'idclient');
+        return $this->belongsTo('App\Models\EX1\Client', 'idclient');
     }
 
     public function produit()
     {
-        return $this->belongsTo('App\Models\Produit', 'idproduit');
+        return $this->belongsTo('App\Models\EX1\Produit', 'idproduit');
     }
 }
