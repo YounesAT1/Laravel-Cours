@@ -2,7 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CRUD\Cars\CarController;
+use App\Http\Controllers\CRUD\Books\BookController;
+use App\Http\Controllers\CRUD\Products\ProductController;
 use App\Http\Controllers\CRUD\Etudiants\EtudiantController;
+use App\Http\Controllers\CRUD\Products\CategorieController;
 
 // Route::get('/', function () {
 //     return view('welcome');
@@ -37,3 +40,30 @@ Route::delete('/cars/{car}/destroy', [carController::class, 'destroy'])->name('c
 
 Route::get('/cars/{car}/details', [carController::class, 'details'])->name('car.detail');
 
+
+//? CRUD BOOK
+
+Route::get('/books', [BookController::class, 'lister']);
+Route::get('/books/{numero}', [BookController::class, 'detail']);
+Route::get('/books/ajouter', function () {
+  return view('books.ajouterBook');
+});
+Route::post('/books/ajouter', [BookController::class, 'ajouter']);
+Route::get('/books/modifier/{numero}', [BookController::class, 'modifier']);
+Route::post('/books/modifier/{numero}', [BookController::class, 'mettreAJour']);
+Route::get('/books/supprimer/{numero}', [BookController::class, 'supprimer']);
+Route::post('/books/rechercher-par-titre', [BookController::class, 'rechercherBooksParTitre']);
+Route::post('/books/rechercher-par-auteur', [BookController::class, 'rechercherBooksParAuthor']);
+
+
+//? CRUD PRODUCT
+Route::get('/categories', [CategorieController::class, 'index'])->name('categories.index');
+Route::get('/categories/create',[CategorieController::class,'create'])->name('categories.create');
+Route::post('/categories', [CategorieController::class, 'store'])->name('categories.store');
+
+Route::get('/products', [ProductController::class, 'index'])->name('products.index');
+Route::get('/products/create',[ProductController::class,'create'])->name('products.create');
+Route::post('/products', [ProductController::class, 'store'])->name('products.store');
+Route::get('/products/{product}/edit', [ProductController::class, 'edit'])->name('products.edit');
+Route::put('/products/{product}/update', [ProductController::class, 'update'])->name('products.update');
+Route::delete('/products/{product}/destroy', [ProductController::class, 'destroy'])->name('products.destroy');
